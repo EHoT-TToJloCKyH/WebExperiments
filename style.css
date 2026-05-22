@@ -1,4 +1,4 @@
-/* Это для всех элементов */
+/* под все элементы */
 * {
     margin: 0;
     padding: 0;
@@ -12,84 +12,73 @@ body {
     line-height: 1.6;
 }
 
-/* Панель навигации*/
+/* навигация */
 .navbar {
-    /* фиксация панели */
     position: fixed;
     top: 20px;
     left: 50%;
-    /* Сдвигает элемент влево на 50% от его собственной ширины */
     transform: translateX(-50%);
-    /* Ширина панели = 90% от ширины окна браузера*/
     width: 90%;
     max-width: 750px;
     background: rgba(46, 46, 46, 0.85);
-    /* Размытие контента за панелью в радиусе 12 пикселей */
     backdrop-filter: blur(12px);
-    /* Скругляем углы*/
     border-radius: 40px;
     padding: 12px 30px;
     display: flex;
-    /* Распределяем контент по горизонтали */
     justify-content: space-between;
     align-items: center;
-    /* окантовка*/
     border: 1px solid rgba(255, 255, 255, 0.08);
-    /*гарант наложения сверху*/
     z-index: 1000;
-    
 }
-/* Название магазина на панели*/
+
 .nav-brand {
     font-weight: 700;
     font-size: 1.4rem;
     color: #00d4aa;
     letter-spacing: -0.5px;
 }
-/* список разделов*/
+
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 5px;
 }
-/*Кнопки разделов*/
+
 .nav-btn {
     color: #aaa;
-    /*Чтоб underline не было. Это же ссылки*/
     text-decoration: none;
     font-weight: 500;
     padding: 8px 16px;
     border-radius: 20px;
-    /*анимация свойств. Для наведения мышкой*/
     transition: all 0.3s ease;
     font-size: 0.95rem;
 }
-/*При наведении*/
+
 .nav-btn:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.05);
 }
-/*Активный раздел*/
+
 .nav-btn.active {
     color: #fff;
     background: rgba(0, 212, 170, 0.15);
 }
 
+/* основные элементы страницы*/
 main {
     padding-top: 120px;
 }
-/*любая секция*/
+
 .section {
     padding: 60px 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* раздел Главное */
 .my-container {
     display: grid;
-    /*две колонки одинаковой ширины*/
     grid-template-columns: 1fr 1fr;
-    /*промежутки между рядами и колонками*/
     gap: 40px;
     align-items: center;
 }
@@ -121,6 +110,7 @@ main {
     font-size: 1.8rem;
 }
 
+/* карта */
 .map-container {
     width: 100%;
     height: 300px;
@@ -135,6 +125,7 @@ main {
     border: none;
 }
 
+/* заголовки секций */
 .section-title {
     font-size: 2rem;
     margin-bottom: 40px;
@@ -144,6 +135,7 @@ main {
     border-left: 4px solid #00d4aa;
 }
 
+/* Сборки */
 .builds-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -163,6 +155,7 @@ main {
     transform: translateY(-4px);
 }
 
+/* изображения ПК */
 .image-gallery {
     position: relative;
     width: 100%;
@@ -218,6 +211,7 @@ main {
     font-size: 0.85rem;
 }
 
+/* инфо о сборке */
 .build-info {
     padding: 24px;
 }
@@ -257,6 +251,7 @@ main {
     margin-top: 10px;
 }
 
+/* Вкладка тесты */
 .charts-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -289,6 +284,7 @@ main {
     margin-top: 30px;
 }
 
+/* вкладка Отзывы */
 .reviews-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -354,6 +350,7 @@ main {
     line-height: 1.6;
 }
 
+/* под мобилку */
 @media (max-width: 768px) {
     .navbar {
         top: 8px;

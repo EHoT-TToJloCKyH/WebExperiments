@@ -1,9 +1,11 @@
+// цвета под графики тестов
 const COLORS = {
   nfs: '#00d4aa',
   mk: '#7c5cfc',
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  // подсветка активного раздела в NavBar
   const sections = document.querySelectorAll('.section');
   const navBtns = document.querySelectorAll('.nav-btn');
 
@@ -16,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { rootMargin: '-40% 0px -55% 0px' });
 
   sections.forEach(s => observer.observe(s));
+
+  // ===== ПЕРЕКЛЮЧЕНИЕ ИЗОБРАЖЕНИЙ В ГАЛЕРЕЕ =====
   document.querySelectorAll('.image-gallery').forEach(gallery => {
     const images = gallery.querySelectorAll('.gallery-img');
     const counter = gallery.querySelector('.img-counter');
@@ -42,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ===== НАСТРОЙКА ГРАФИКОВ CHART.JS =====
   const isMobile = window.innerWidth < 768;
   const baseFontSize = isMobile ? 9 : 12;
   const legendFontSize = isMobile ? 8 : 11;
@@ -66,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
+  // График 1: Игры (FPS)
   new Chart(document.getElementById('gamesChart'), {
     type: 'bar',
     data: {
@@ -94,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
+  // График 2: Бенчмарки
   new Chart(document.getElementById('workChart'), {
     type: 'bar',
     data: {
