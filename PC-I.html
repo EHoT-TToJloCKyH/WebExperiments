@@ -9,19 +9,50 @@
 </head>
 <body>
     <header>
+        <!-- Панель навигации -->
         <nav class="navbar">
-            <div class="nav-brand">⚡ PC-I</div>
+            <!-- Название на панели -->
+            <div class="nav-brand">💎 PC-I</div>
+            <!-- Сама менюшка -->
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Главное</a></li>
-                <li><a href="#builds" class="nav-link">Инфо о ПК</a></li>
-                <li><a href="#benchmarks" class="nav-link">Тесты</a></li>
-                <li><a href="#reviews" class="nav-link">Отзывы</a></li>
+                <li><a href="#home" class="nav-btn active">Главное</a></li>
+                <li><a href="#builds" class="nav-btn">Инфо о ПК</a></li>
+                <li><a href="#benchmarks" class="nav-btn">Тесты</a></li>
+                <li><a href="#reviews" class="nav-btn">Отзывы</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        
+        <!-- Раздел Главное-->
+        <section id="home" class="section">
+            <!-- контейнер с основной инфой -->
+            <div class="my-container">
+                <div class="my-text">
+                    <h1>PC-I — Магазин готовых сборок</h1>
+                    <p class="my-subtitle">Мы собираем компьютеры, которые нужны ВСЕМ.
+                        Работаем с 2025 года, даём гарантию 2 года на все сборки.</p>
+                    <!-- Подокошко с адресом -->
+                    <div class="address-block">
+                        <div class="address-icon">❤︎</div>
+                        <div>
+                            <strong>Наш магазин:</strong><br>
+                            г. Мурманск, ул. Спортивная, 13<br>
+                            <span style="color: #00d4aa;">Ежедневно с 9:00 до 21:00</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Подокошко с картой -->
+                <div class="map-container">
+                    <!-- Карта -->
+                    <div class="map-placeholder">
+                        <div class="map-pin">❤︎</div>
+                        <p>Яндекс.Карты</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
