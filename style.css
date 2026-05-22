@@ -12,21 +12,43 @@ body {
     line-height: 1.6;
 }
 
-/* навигация */
+/* ЧАСЫ — фиксированная позиция в левом верхнем углу */
+#clock {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 9999;
+    color: #888;
+    font-size: 0.8rem;
+    font-family: 'Inter', monospace;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+    user-select: none;
+}
+
+/* НАВИГАЦИЯ — FLEXBOX
+   .navbar — flex-контейнер: располагает логотип и меню в одну строку,
+   распределяет пространство между ними (space-between), центрирует по вертикали.
+   position: fixed фиксирует панель в окне; transform сдвигает её влево на 50%
+   собственной ширины для точного центрирования поверх left: 50%.
+*/
 .navbar {
     position: fixed;
     top: 20px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%);  /* центрирование через сдвиг */
     width: 90%;
     max-width: 750px;
     background: rgba(46, 46, 46, 0.85);
     backdrop-filter: blur(12px);
     border-radius: 40px;
     padding: 12px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex;                /* FLEXBOX: контейнер */
+    justify-content: space-between; /* логотип слева, меню справа */
+    align-items: center;          /* центрирование по вертикали */
     border: 1px solid rgba(255, 255, 255, 0.08);
     z-index: 1000;
 }
@@ -38,10 +60,14 @@ body {
     letter-spacing: -0.5px;
 }
 
+/* .nav-menu — FLEXBOX: вложенный flex-контейнер для списка ссылок.
+   Выкладывает пункты (li) в ряд через display: flex на <ul>.
+   gap задаёт промежуток между кнопками.
+*/
 .nav-menu {
-    display: flex;
+    display: flex;                /* FLEXBOX: контейнер */
     list-style: none;
-    gap: 5px;
+    gap: 5px;                    /* отступ между пунктами */
 }
 
 .nav-btn {
@@ -50,7 +76,7 @@ body {
     font-weight: 500;
     padding: 8px 16px;
     border-radius: 20px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease;  /* TRANSITION: плавное изменение цвета/фона при наведении */
     font-size: 0.95rem;
 }
 
@@ -75,12 +101,16 @@ main {
     margin: 0 auto;
 }
 
-/* раздел Главное */
+/* СЕКЦИЯ "ГЛАВНОЕ" — CSS GRID
+   .my-container — grid-контейнер из двух равных колонок (1fr 1fr).
+   gap — отступ между колонками и строками.
+   align-items: center — вертикальное выравнивание содержимого ячеек.
+*/
 .my-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
+    display: grid;                        /* GRID: контейнер */
+    grid-template-columns: 1fr 1fr;       /* две колонки одинаковой ширины */
+    gap: 40px;                            /* зазор между ячейками */
+    align-items: center;                  /* вертикальное центрирование */
 }
 
 .my-text h1 {
@@ -97,8 +127,9 @@ main {
     margin-bottom: 30px;
 }
 
+/* .address-block — FLEXBOX: иконка и текст адреса в одну строку */
 .address-block {
-    display: flex;
+    display: flex;                /* FLEXBOX: контейнер */
     gap: 15px;
     background: rgba(255, 255, 255, 0.03);
     padding: 20px;
@@ -135,24 +166,30 @@ main {
     border-left: 4px solid #00d4aa;
 }
 
-/* Сборки */
+/* СЕКЦИЯ "СБОРКИ" — CSS GRID
+   .builds-grid — двухколоночная сетка для карточек сборок.
+   Каждая карточка автоматически заполняет ячейку.
+*/
 .builds-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    display: grid;                        /* GRID: контейнер */
+    grid-template-columns: 1fr 1fr;       /* две колонки */
+    gap: 30px;                            /* зазор между карточками */
 }
 
+/* .build-card — карточка сборки.
+   TRANSITION: при наведении плавно приподнимается (translateY) и меняет цвет рамки.
+*/
 .build-card {
     background: #111;
     border-radius: 20px;
     border: 1px solid #222;
     overflow: hidden;
-    transition: transform 0.3s, border-color 0.3s;
+    transition: transform 0.3s, border-color 0.3s;  /* TRANSITION: анимация hover */
 }
 
 .build-card:hover {
     border-color: #333;
-    transform: translateY(-4px);
+    transform: translateY(-4px);  /* TRANSFORM: подъём карточки вверх */
 }
 
 /* изображения ПК */
@@ -163,6 +200,9 @@ main {
     background: #0a0a0a;
 }
 
+/* .gallery-img — абсолютное позиционирование для наложения изображений друг на друга.
+   TRANSITION: плавное появление/исчезновение через opacity.
+*/
 .gallery-img {
     position: absolute;
     top: 0;
@@ -170,21 +210,24 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    opacity: 0;                              /* неактивное — невидимо */
+    transition: opacity 0.4s ease;           /* TRANSITION: плавная смена opacity */
 }
 
 .gallery-img.active {
-    opacity: 1;
+    opacity: 1;                              /* активное — видимо */
 }
 
+/* .gallery-controls — FLEXBOX: кнопки ◀ и ▶ со счётчиком по центру.
+   transform: translateX(-50%) при left: 50% центрирует блок по горизонтали.
+*/
 .gallery-controls {
     position: absolute;
     bottom: 10px;
     left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
+    transform: translateX(-50%);  /* TRANSFORM: центрирование относительно left */
+    display: flex;                /* FLEXBOX: контейнер для кнопок */
+    align-items: center;          /* выравнивание по вертикали */
     gap: 12px;
     background: rgba(0,0,0,0.7);
     padding: 6px 14px;
@@ -199,7 +242,7 @@ main {
     font-size: 0.9rem;
     cursor: pointer;
     padding: 2px 6px;
-    transition: color 0.2s;
+    transition: color 0.2s;       /* TRANSITION: плавная смена цвета при наведении */
 }
 
 .gallery-btn:hover {
@@ -251,10 +294,12 @@ main {
     margin-top: 10px;
 }
 
-/* Вкладка тесты */
+/* СЕКЦИЯ "ТЕСТЫ" — CSS GRID
+   .charts-grid — две колонки для карточек с графиками.
+*/
 .charts-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: grid;                        /* GRID: контейнер */
+    grid-template-columns: 1fr 1fr;       /* две колонки */
     gap: 30px;
 }
 
@@ -284,45 +329,54 @@ main {
     margin-top: 30px;
 }
 
-/* вкладка Отзывы */
+/* СЕКЦИЯ "ОТЗЫВЫ" — CSS GRID
+   .reviews-grid — две колонки для карточек отзывов.
+*/
 .reviews-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: grid;                        /* GRID: контейнер */
+    grid-template-columns: 1fr 1fr;       /* две колонки */
     gap: 24px;
 }
 
+/* .review-card — карточка отзыва.
+   TRANSITION: плавный подъём при наведении (аналогично build-card).
+*/
 .review-card {
     background: #111;
     border-radius: 20px;
     border: 1px solid #222;
     padding: 24px;
-    transition: border-color 0.3s, transform 0.3s;
+    transition: border-color 0.3s, transform 0.3s;  /* TRANSITION: анимация hover */
 }
 
 .review-card:hover {
     border-color: #333;
-    transform: translateY(-4px);
+    transform: translateY(-4px);  /* TRANSFORM: подъём вверх */
 }
 
+/* .review-header — FLEXBOX: аватар + имя/дата в одну строку */
 .review-header {
-    display: flex;
-    align-items: center;
+    display: flex;                /* FLEXBOX: контейнер */
+    align-items: center;          /* центрирование по вертикали */
     gap: 14px;
     margin-bottom: 12px;
 }
 
+/* .review-avatar — FLEXBOX: центрирование буквы-инициала внутри круга.
+   flex-shrink: 0 запрещает аватару сжиматься.
+*/
 .review-avatar {
     width: 44px;
     height: 44px;
     border-radius: 50%;
     background: linear-gradient(135deg, #00d4aa, #7c5cfc);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex;                /* FLEXBOX: контейнер для буквы */
+    align-items: center;          /* центрирование по вертикали */
+    justify-content: center;      /* центрирование по горизонтали */
     font-weight: 700;
     font-size: 1.1rem;
     color: #fff;
-    flex-shrink: 0;
+    flex-shrink: 0;               /* запрет сжатия в flex-контейнере */
 }
 
 .review-name {
@@ -350,45 +404,52 @@ main {
     line-height: 1.6;
 }
 
-/* под мобилку */
+/* МЕДИАЗАПРОС — АДАПТИВ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА
+   @media (max-width: 768px) — правила применяются, когда ширина окна ≤ 768px.
+   Сетки переключаются в 1 колонку, размеры шрифтов и отступов уменьшаются.
+*/
 @media (max-width: 768px) {
+
+    /* Navbar: центрируется, пункты меню можно скроллить по горизонтали */
     .navbar {
         top: 8px;
         padding: 8px 14px;
         width: 96%;
         gap: 4px;
-        flex-wrap: wrap;
+        flex-wrap: wrap;          /* перенос элементов, если не влезают */
         justify-content: center;
     }
 
     .nav-brand {
         font-size: 1rem;
-        width: 100%;
+        width: 100%;              /* бренд на всю ширину, меню под ним */
         text-align: center;
     }
 
     .nav-menu {
         gap: 2px;
-        overflow-x: auto;
+        overflow-x: auto;         /* горизонтальный скролл для маленьких экранов */
         -webkit-overflow-scrolling: touch;
     }
 
     .nav-btn {
         font-size: 0.75rem;
         padding: 5px 10px;
-        white-space: nowrap;
+        white-space: nowrap;      /* текст кнопки не переносится */
     }
 
+    /* Основной контент */
     main {
         padding-top: 100px;
     }
 
     .section {
-        padding: 30px 16px;
+        padding: 30px 16px;      /* уменьшенные отступы */
     }
 
+    /* Главная: из двух колонок → в одну */
     .my-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;  /* GRID: одна колонка */
         gap: 20px;
     }
 
@@ -410,8 +471,9 @@ main {
         padding-left: 12px;
     }
 
+    /* Сборки: две колонки → в одну */
     .builds-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;  /* GRID: одна колонка */
         gap: 16px;
     }
 
@@ -453,8 +515,9 @@ main {
         font-size: 0.75rem;
     }
 
+    /* Тесты: две колонки → в одну */
     .charts-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;  /* GRID: одна колонка */
         gap: 16px;
     }
 
@@ -476,8 +539,9 @@ main {
         margin-top: 20px;
     }
 
+    /* Отзывы: две колонки → в одну */
     .reviews-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;  /* GRID: одна колонка */
         gap: 14px;
     }
 
@@ -515,5 +579,13 @@ main {
 
     .map-container {
         height: 220px;
+    }
+
+    /* часы: меньше и смещены, чтобы не перекрывать навбар */
+    #clock {
+        top: 6px;
+        left: 6px;
+        font-size: 0.65rem;
+        padding: 2px 6px;
     }
 }

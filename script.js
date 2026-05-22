@@ -5,6 +5,15 @@ const COLORS = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ЧАСЫ — обновление каждую секунду через setInterval
+  const clock = document.getElementById('clock');
+  function updateClock() {
+    const now = new Date();
+    clock.textContent = now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  }
+  updateClock();
+  setInterval(updateClock, 1000);  // setInterval: вызывает updateClock каждые 1000 мс
+
   // подсветка активного раздела в NavBar
   const sections = document.querySelectorAll('.section');
   const navBtns = document.querySelectorAll('.nav-btn');
@@ -19,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(s => observer.observe(s));
 
-  // ===== ПЕРЕКЛЮЧЕНИЕ ИЗОБРАЖЕНИЙ В ГАЛЕРЕЕ =====
+  // переключение изображений компов
   document.querySelectorAll('.image-gallery').forEach(gallery => {
     const images = gallery.querySelectorAll('.gallery-img');
     const counter = gallery.querySelector('.img-counter');
@@ -46,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== НАСТРОЙКА ГРАФИКОВ CHART.JS =====
+  // графики CHART.JS
   const isMobile = window.innerWidth < 768;
   const baseFontSize = isMobile ? 9 : 12;
   const legendFontSize = isMobile ? 8 : 11;
