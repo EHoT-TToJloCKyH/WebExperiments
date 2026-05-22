@@ -6,6 +6,7 @@
     <title>PC-I — Готовые сборки ПК</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <header>
@@ -115,6 +116,21 @@
             </div>
     </div>
 </section>
+        <!-- раздел тестов -->
+        <section id="benchmarks" class="section">
+            <h2 class="section-title">Тесты в играх и программах</h2>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Игры (FPS, 1080p)</h3>
+                    <canvas id="gamesChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Бенчмарки</h3>
+                    <canvas id="workChart"></canvas>
+                </div>
+            </div>
+            <p class="chart-note">* Результаты могут незначительно отличаться в зависимости от версий драйверов и температуры компонентов.</p>
+        </section>
     </main>
 
     <script src="script.js"></script>
