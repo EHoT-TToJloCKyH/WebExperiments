@@ -353,3 +353,105 @@ main {
     font-size: 0.95rem;
     line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        top: 10px;
+        padding: 10px 16px;
+        width: 95%;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+    }
+
+    .nav-brand {
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu {
+        gap: 2px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        white-space: nowrap;
+    }
+
+    main {
+        padding-top: 110px;
+    }
+
+    .section {
+        padding: 40px 4%;
+    }
+
+    .my-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .my-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .my-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 24px;
+    }
+
+    .builds-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .image-gallery {
+        height: 200px;
+    }
+
+    .build-info {
+        padding: 16px;
+    }
+
+    .build-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .price {
+        font-size: 1.4rem;
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .chart-card {
+        padding: 16px;
+    }
+
+    .chart-card canvas {
+        max-height: 240px;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .review-card {
+        padding: 16px;
+    }
+
+    .map-container {
+        height: 220px;
+    }
+}
