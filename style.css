@@ -357,101 +357,161 @@ main {
 @media (max-width: 768px) {
     .navbar {
         top: 10px;
-        padding: 10px 16px;
-        width: 95%;
+        padding: 1.5vw 2.5vw;
+        width: 94%;
+        gap: 0.5vw;
         flex-wrap: wrap;
-        gap: 6px;
         justify-content: center;
     }
 
     .nav-brand {
-        font-size: 1.1rem;
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
         width: 100%;
         text-align: center;
     }
 
     .nav-menu {
-        gap: 2px;
+        gap: 0.3vw;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
 
     .nav-btn {
-        font-size: 0.8rem;
-        padding: 6px 10px;
+        font-size: clamp(0.65rem, 2.5vw, 0.85rem);
+        padding: 0.8vw 1.8vw;
         white-space: nowrap;
     }
 
     main {
-        padding-top: 110px;
+        padding-top: 16vw;
     }
 
     .section {
-        padding: 40px 4%;
+        padding: 5vw 3%;
+        max-width: 100%;
     }
 
     .my-container {
-        grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 3vw;
     }
 
     .my-text h1 {
-        font-size: 1.8rem;
+        font-size: clamp(1.2rem, 6.5vw, 2rem);
     }
 
     .my-subtitle {
-        font-size: 0.95rem;
+        font-size: clamp(0.8rem, 2.8vw, 1rem);
     }
 
     .section-title {
-        font-size: 1.4rem;
-        margin-bottom: 24px;
+        font-size: clamp(1rem, 5vw, 1.6rem);
+        margin-bottom: 4vw;
+        padding-left: 2vw;
     }
 
     .builds-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 2.5vw;
     }
 
     .image-gallery {
-        height: 200px;
+        height: 32vw;
     }
 
     .build-info {
-        padding: 16px;
+        padding: 2.5vw 3vw;
     }
 
     .build-info h3 {
-        font-size: 1.2rem;
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+
+    .build-desc {
+        font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+    }
+
+    .specs li {
+        font-size: clamp(0.7rem, 2.3vw, 0.85rem);
+        padding: 0.6vw 0;
     }
 
     .price {
-        font-size: 1.4rem;
+        font-size: clamp(1.1rem, 5vw, 1.6rem);
+    }
+
+    .gallery-controls {
+        padding: 0.8vw 2vw;
+        gap: 2vw;
+    }
+
+    .gallery-btn {
+        font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+    }
+
+    .img-counter {
+        font-size: clamp(0.65rem, 2.2vw, 0.8rem);
     }
 
     .charts-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 2.5vw;
     }
 
     .chart-card {
-        padding: 16px;
+        padding: 2.5vw 3vw;
+    }
+
+    .chart-card h3 {
+        font-size: clamp(0.85rem, 3vw, 1.1rem);
+        margin-bottom: 2.5vw;
     }
 
     .chart-card canvas {
-        max-height: 240px;
+        max-height: 40vw;
+    }
+
+    .chart-note {
+        font-size: clamp(0.6rem, 2vw, 0.8rem);
+        margin-top: 4vw;
     }
 
     .reviews-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 2vw;
     }
 
     .review-card {
-        padding: 16px;
+        padding: 2.5vw 3vw;
+    }
+
+    .review-header {
+        gap: 2vw;
+        margin-bottom: 1.5vw;
+    }
+
+    .review-avatar {
+        width: 6vw;
+        height: 6vw;
+        font-size: clamp(0.7rem, 2.5vw, 1rem);
+        min-width: 32px;
+        min-height: 32px;
+    }
+
+    .review-name {
+        font-size: clamp(0.8rem, 2.8vw, 0.95rem);
+    }
+
+    .review-date {
+        font-size: clamp(0.6rem, 2vw, 0.8rem);
+    }
+
+    .review-stars {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        margin-bottom: 1.5vw;
+    }
+
+    .review-text {
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
     }
 
     .map-container {
-        height: 220px;
+        height: 35vw;
     }
 }
