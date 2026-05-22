@@ -35,6 +35,8 @@ body {
     align-items: center;
     /* окантовка*/
     border: 1px solid rgba(255, 255, 255, 0.08);
+    /*гарант наложения сверху*/
+    z-index: 1000;
     
 }
 /* Название магазина на панели*/
@@ -161,4 +163,126 @@ main {
 @keyframes bounce {
     from { transform: translateY(0); }
     to { transform: translateY(-8px); }
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #fff;
+    position: relative;
+    padding-left: 15px;
+    border-left: 4px solid #00d4aa;
+}
+
+.builds-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.build-card {
+    background: #111;
+    border-radius: 20px;
+    border: 1px solid #222;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.build-card:hover {
+    border-color: #333;
+    transform: translateY(-4px);
+}
+
+.image-gallery {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: #0a0a0a;
+}
+
+.gallery-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-img.active {
+    opacity: 1;
+}
+
+.gallery-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0,0,0,0.7);
+    padding: 6px 14px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.gallery-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 2px 6px;
+    transition: color 0.2s;
+}
+
+.gallery-btn:hover {
+    color: #00d4aa;
+}
+
+.img-counter {
+    color: #ccc;
+    font-size: 0.85rem;
+}
+
+.build-info {
+    padding: 24px;
+}
+
+.build-info h3 {
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.build-desc {
+    color: #888;
+    margin: 8px 0 16px;
+    font-size: 0.95rem;
+}
+
+.specs {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.specs li {
+    padding: 6px 0;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 0.9rem;
+}
+
+.specs li span {
+    color: #00d4aa;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 10px;
 }
