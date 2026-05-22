@@ -42,17 +42,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const isMobile = window.innerWidth < 768;
+  const baseFontSize = isMobile ? 9 : 12;
+  const legendFontSize = isMobile ? 8 : 11;
+
   const cfg = {
     responsive: true,
     maintainAspectRatio: true,
     plugins: {
       legend: {
-        labels: { color: '#ccc', font: { family: 'Inter, sans-serif' } },
+        labels: { color: '#ccc', font: { family: 'Inter, sans-serif', size: legendFontSize } },
       },
     },
     scales: {
-      x: { ticks: { color: '#aaa', font: { family: 'Inter, sans-serif' } }, grid: { color: '#222' } },
-      y: { ticks: { color: '#aaa', font: { family: 'Inter, sans-serif' } }, grid: { color: '#222' } },
+      x: {
+        ticks: { color: '#aaa', font: { family: 'Inter, sans-serif', size: baseFontSize } },
+        grid: { color: '#222' },
+      },
+      y: {
+        ticks: { color: '#aaa', font: { family: 'Inter, sans-serif', size: baseFontSize } },
+        grid: { color: '#222' },
+      },
     },
   };
 
