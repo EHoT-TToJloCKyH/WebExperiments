@@ -1,0 +1,355 @@
+/* Это для всех элементов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Панель навигации*/
+.navbar {
+    /* фиксация панели */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    /* Сдвигает элемент влево на 50% от его собственной ширины */
+    transform: translateX(-50%);
+    /* Ширина панели = 90% от ширины окна браузера*/
+    width: 90%;
+    max-width: 750px;
+    background: rgba(46, 46, 46, 0.85);
+    /* Размытие контента за панелью в радиусе 12 пикселей */
+    backdrop-filter: blur(12px);
+    /* Скругляем углы*/
+    border-radius: 40px;
+    padding: 12px 30px;
+    display: flex;
+    /* Распределяем контент по горизонтали */
+    justify-content: space-between;
+    align-items: center;
+    /* окантовка*/
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /*гарант наложения сверху*/
+    z-index: 1000;
+    
+}
+/* Название магазина на панели*/
+.nav-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #00d4aa;
+    letter-spacing: -0.5px;
+}
+/* список разделов*/
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+}
+/*Кнопки разделов*/
+.nav-btn {
+    color: #aaa;
+    /*Чтоб underline не было. Это же ссылки*/
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    /*анимация свойств. Для наведения мышкой*/
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+/*При наведении*/
+.nav-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+/*Активный раздел*/
+.nav-btn.active {
+    color: #fff;
+    background: rgba(0, 212, 170, 0.15);
+}
+
+main {
+    padding-top: 120px;
+}
+/*любая секция*/
+.section {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.my-container {
+    display: grid;
+    /*две колонки одинаковой ширины*/
+    grid-template-columns: 1fr 1fr;
+    /*промежутки между рядами и колонками*/
+    gap: 40px;
+    align-items: center;
+}
+
+.my-text h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.my-subtitle {
+    color: #aaa;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.address-block {
+    display: flex;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.address-icon {
+    font-size: 1.8rem;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #fff;
+    position: relative;
+    padding-left: 15px;
+    border-left: 4px solid #00d4aa;
+}
+
+.builds-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.build-card {
+    background: #111;
+    border-radius: 20px;
+    border: 1px solid #222;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.build-card:hover {
+    border-color: #333;
+    transform: translateY(-4px);
+}
+
+.image-gallery {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: #0a0a0a;
+}
+
+.gallery-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-img.active {
+    opacity: 1;
+}
+
+.gallery-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0,0,0,0.7);
+    padding: 6px 14px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.gallery-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 2px 6px;
+    transition: color 0.2s;
+}
+
+.gallery-btn:hover {
+    color: #00d4aa;
+}
+
+.img-counter {
+    color: #ccc;
+    font-size: 0.85rem;
+}
+
+.build-info {
+    padding: 24px;
+}
+
+.build-info h3 {
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.build-desc {
+    color: #888;
+    margin: 8px 0 16px;
+    font-size: 0.95rem;
+}
+
+.specs {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.specs li {
+    padding: 6px 0;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 0.9rem;
+}
+
+.specs li span {
+    color: #00d4aa;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.chart-card {
+    background: #111;
+    border-radius: 20px;
+    border: 1px solid #222;
+    padding: 24px;
+}
+
+.chart-card h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chart-card canvas {
+    width: 100% !important;
+    max-height: 320px;
+}
+
+.chart-note {
+    text-align: center;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 30px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.review-card {
+    background: #111;
+    border-radius: 20px;
+    border: 1px solid #222;
+    padding: 24px;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.review-card:hover {
+    border-color: #333;
+    transform: translateY(-4px);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.review-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00d4aa, #7c5cfc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.review-name {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.review-date {
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 2px;
+}
+
+.review-stars {
+    color: #f5b342;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.review-text {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
