@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC-I — Готовые сборки ПК</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- часы в левом верхнем углу -->
+    <div id="clock"></div>
+
+    <!-- навигация -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">💎 PC-I</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-btn active">Главное</a></li>
+                <li><a href="#builds" class="nav-btn">Инфо о ПК</a></li>
+                <li><a href="#benchmarks" class="nav-btn">Тесты</a></li>
+                <li><a href="#reviews" class="nav-btn">Отзывы</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- основа -->
+    <main>
+        <!-- вкладка главное-->
+        <section id="home" class="section">
+            <div class="my-container">
+                <div class="my-text">
+                    <h1>PC-I — Магазин готовых сборок</h1>
+                    <p class="my-subtitle">Мы собираем компьютеры, которые нужны ВСЕМ.
+                        Работаем с 2025 года, даём гарантию 2 года на все сборки.</p>
+                    <div class="address-block">
+                        <div class="address-icon">❤︎</div>
+                        <div>
+                            <strong>Наш магазин:</strong><br>
+                            г. Мурманск, ул. Спортивная, 13<br>
+                            <span style="color: #00d4aa;">Ежедневно с 9:00 до 21:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe class="map-iframe" src="https://yandex.ru/map-widget/v1/?ll=33.062135%2C68.954648&amp;z=17&amp;l=map&amp;pt=33.062135%2C68.954648%2Cpm2rdl" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- вкладка сборки -->
+        <section id="builds" class="section">
+            <h2 class="section-title">Готовые сборки</h2>
+            <div class="builds-grid"></div>
+        </section>
+
+        <!-- Вкладка 3. Тесты -->
+        <section id="benchmarks" class="section">
+            <h2 class="section-title">Тесты в играх и программах</h2>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Игры (FPS, 1080p)</h3>
+                    <canvas id="gamesChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Бенчмарки</h3>
+                    <canvas id="workChart"></canvas>
+                </div>
+            </div>
+            <p class="chart-note">* Результаты могут незначительно отличаться в зависимости от версий драйверов и температуры компонентов.</p>
+        </section>
+
+        <!-- Вкладка Отзывы -->
+        <section id="reviews" class="section">
+            <h2 class="section-title">Отзывы</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">А</div>
+                        <div>
+                            <div class="review-name">Алексей</div>
+                            <div class="review-date">12 марта 2026</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Взял сборку Mighty Knight — зверь! Всё летает на ультрах в 1440p. Доставили быстро, упаковано надёжно. Отдельное спасибо за грамотную консультацию.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">М</div>
+                        <div>
+                            <div class="review-name">Марина</div>
+                            <div class="review-date">28 февраля 2026</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Покупала Not-For-Study для дочери-студентки. Цена-качество отличное, в своих задачах справляется на ура. Через полгода полёта нормальный.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">Д</div>
+                        <div>
+                            <div class="review-name">Дмитрий</div>
+                            <div class="review-date">15 января 2026</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★☆</div>
+                    <p class="review-text">Хорошая сборка, всё работает стабильно. Минус звезда — не хватило места под кабель-менеджмент в корпусе, пришлось самому докупать стяжки. В остальном претензий нет.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">Е</div>
+                        <div>
+                            <div class="review-name">Екатерина</div>
+                            <div class="review-date">3 декабря 2025</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Обратилась первый раз, переживала. Но ребята всё объяснили, подобрали сборку под бюджет. Комп пришёл через 2 дня, работает как часы. Рекомендую!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
