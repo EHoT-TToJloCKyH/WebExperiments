@@ -403,3 +403,147 @@ function renderBuilds() {
   `).join('');
 
 }
+
+//  ДАННЫЕ ВИКТОРИНЫ
+const QUIZ = [
+  {
+    question: 'Что означает аббревиатура CPU?',
+    options: ['Central Processing Unit', 'Computer Personal Unit', 'Central Program Utility', 'Core Processing Unit'],
+    correct: 0,
+  },
+  {
+    question: 'Что такое VRAM?',
+    options: ['Виртуальная оперативная память', 'Память видеокарты', 'Память процессора', 'Память блока питания'],
+    correct: 1,
+  },
+  {
+    question: 'Чем NVME отличается от SATA?',
+    options: ['NVME только для HDD', 'NVME медленнее SATA', 'NVME значительно быстрее SATA', 'Разницы нет'],
+    correct: 2,
+  },
+  {
+    question: 'Зачем нужна термопаста?',
+    options: ['Для охлаждения блока питания', 'Для улучшения контакта CPU с кулером', 'Для смазки вентиляторов', 'Для изоляции контактов'],
+    correct: 1,
+  },
+  {
+    question: 'Какая характеристика НЕ влияет на производительность ПК?',
+    options: ['Тактовая частота CPU', 'Скорость интернета', 'Тип видеокарты', 'Частота оперативной памяти'],
+    correct: 1,
+  },
+  {
+    question: 'Что такое PSU?',
+    options: ['Программный блок управления', 'Блок охлаждения процессора', 'Система контроля температуры', 'Блок питания'],
+    correct: 3,
+  },
+  {
+    question: 'Какой разъём используется для подключения современных видеокарт?',
+    options: ['SATA', 'M.2', 'PCIe x16', 'USB-C'],
+    correct: 2,
+  },
+  {
+    question: 'Что такое overclocking (разгон)?',
+    options: ['Снижение температуры компонентов', 'Автоматическое обновление драйверов', 'Увеличение скорости работы компонентов', 'Оптимизация энергопотребления'],
+    correct: 2,
+  },
+];
+
+function renderQuiz() {
+  const container = document.getElementById('quizQuestions');
+  container.innerHTML = QUIZ.map((q, qi) => `
+    <div class="quiz-question" data-question="${qi}">
+      <div class="quiz-q-text">${qi + 1}. ${q.question}</div>
+      <div class="quiz-options">
+        ${q.options.map((opt, oi) => `
+          <label class="quiz-option" data-option="${oi}">
+            <input type="radio" name="q${qi}" value="${oi}">
+            ${opt}
+          </label>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function checkQuiz() {
+  let correct = 0;
+  const total = QUIZ.length;
+
+  QUIZ.forEach((q, qi) => {
+    const selected = document.querySelector(`input[name="q${qi}"]:checked`);
+    const questionEl = document.querySelector(`[data-question="${qi}"]`);
+    const options = questionEl.querySelectorAll('.quiz-option');
+
+    options.forEach((opt, oi) => {
+      opt.classList.remove('correct-answer', 'wrong-answer');
+    });
+
+    if (selected) {
+      const chosen = parseInt(selected.value);
+      if (chosen === q.correct) {
+        correct++;
+        questionEl.classList.remove('incorrect');
+        questionEl.classList.add('correct');
+      } else {
+        questionEl.classList.remove('correct');
+        questionEl.classList.add('incorrect');
+        options[q.correct].classList.add('correct-answer');
+        options[chosen].classList.add('wrong-answer');
+      }
+    } else {
+      questionEl.classList.remove('correct', 'incorrect');
+      options[q.correct].classList.add('correct-answer');
+    }
+  });
+
+  const pct = Math.round((correct / total) * 100);
+  const resultEl = document.getElementById('quizResult');
+  let label, desc;
+
+  if (pct === 100) {
+    label = 'Эксперт';
+    desc = 'Ты настоящий гуру ПК-тематики! Поздравляем!';
+  } else if (pct >= 75) {
+    label = 'Продвинутый пользователь';
+    desc = 'Отличный результат! Ты хорошо разбираешься в компьютерах.';
+  } else if (pct >= 50) {
+    label = 'Уверенный пользователь';
+    desc = 'Неплохо! Но есть куда расти. Почитай про железо — это интересно!';
+  } else if (pct >= 25) {
+    label = 'Начинающий';
+    desc = 'База есть, но тебе стоит узнать побольше о комплектующих.';
+  } else {
+    label = 'Новичок';
+    desc = 'Похоже, ты только начинаешь свой путь в мире ПК. Загляни в наши сборки!';
+  }
+
+  resultEl.classList.remove('hidden');
+  resultEl.innerHTML = `
+    <div class="quiz-result-score">${correct}/${total}</div>
+    <div class="quiz-result-label">${label}</div>
+    <div class="quiz-result-desc">${desc}</div>
+  `;
+
+  document.getElementById('quizSubmit').disabled = true;
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.quiz-question').forEach(el => {
+    el.classList.remove('correct', 'incorrect');
+  });
+  document.querySelectorAll('.quiz-option').forEach(el => {
+    el.classList.remove('correct-answer', 'wrong-answer');
+  });
+  document.querySelectorAll('input[type="radio"]').forEach(el => {
+    el.checked = false;
+  });
+  document.getElementById('quizResult').classList.add('hidden');
+  document.getElementById('quizSubmit').disabled = false;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderQuiz();
+
+  document.getElementById('quizSubmit').addEventListener('click', checkQuiz);
+  document.getElementById('quizReset').addEventListener('click', resetQuiz);
+});
