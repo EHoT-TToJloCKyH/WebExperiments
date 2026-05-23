@@ -9,12 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
+    <!-- часы в левом верхнем углу -->
+    <div id="clock"></div>
+
+    <!-- навигация -->
     <header>
-        <!-- Панель навигации -->
         <nav class="navbar">
-            <!-- Название на панели -->
             <div class="nav-brand">💎 PC-I</div>
-            <!-- Сама менюшка -->
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-btn active">Главное</a></li>
                 <li><a href="#builds" class="nav-btn">Инфо о ПК</a></li>
@@ -24,16 +25,15 @@
         </nav>
     </header>
 
+    <!-- основа -->
     <main>
-        <!-- Раздел Главное-->
+        <!-- вкладка главное-->
         <section id="home" class="section">
-            <!-- контейнер с основной инфой -->
             <div class="my-container">
                 <div class="my-text">
                     <h1>PC-I — Магазин готовых сборок</h1>
                     <p class="my-subtitle">Мы собираем компьютеры, которые нужны ВСЕМ.
                         Работаем с 2025 года, даём гарантию 2 года на все сборки.</p>
-                    <!-- Подокошко с адресом -->
                     <div class="address-block">
                         <div class="address-icon">❤︎</div>
                         <div>
@@ -43,75 +43,77 @@
                         </div>
                     </div>
                 </div>
-                <!-- Подокошко с картой -->
                 <div class="map-container">
                     <iframe class="map-iframe" src="https://yandex.ru/map-widget/v1/?ll=33.062135%2C68.954648&amp;z=17&amp;l=map&amp;pt=33.062135%2C68.954648%2Cpm2rdl" allowfullscreen loading="lazy"></iframe>
                 </div>
             </div>
         </section>
-        <!-- раздел с компами -->
-         <section id="builds" class="section">
+
+        <!-- вкладка сборки -->
+        <section id="builds" class="section">
             <h2 class="section-title">Готовые сборки</h2>
             <div class="builds-grid">
-        
-            <!-- Сборка 1: Not-For-Study -->
-            <div class="build-card">
-                <div class="image-gallery">
-                    <img id="img1" class="gallery-img active" src=".\\Images\\NotForStudy1.png" alt="Сборка 1 вид 1">
-                    <img id="img2" class="gallery-img" src=".\\Images\\NotForStudy2.png" alt="Сборка 1 вид 2">
-                    <img id="img3" class="gallery-img" src=".\\Images\\NotForStudy3.jpeg" alt="Сборка 1 вид 3">
-                    <div class="gallery-controls">
-                        <button class="gallery-btn prev" data-build="0">◀</button>
-                        <span class="img-counter">1/3</span>
-                        <button class="gallery-btn next" data-build="0">▶</button>
-                    </div>
-                </div>
-                <div class="build-info">
-                    <h3>Not-For-Study</h3>
-                    <p class="build-desc">Выходец из вершины бюджетного сегмента, тот самый случай, когда нужно сказать папе, что для учёбы и по цене видно.</p>
-                    <ul class="specs">
-                        <li><span>CPU:</span> Intel Core i3 14100F</li>
-                        <li><span>GPU:</span> RTX 4050 8GB</li>
-                        <li><span>RAM:</span> 16GB DDR4 3200MHz</li>
-                        <li><span>SSD:</span> 512GB NVMe M.2</li>
-                        <li><span>Материнская плата:</span> B760M</li>
-                        <li><span>Блок питания:</span> 550W 80+ Bronze</li>
-                        <li><span>Корпус:</span> DeepCool Matrexx 30</li>
-                    </ul>
-                    <div class="price">70 000 ₽</div>
-                </div>
-            </div>
 
-            <!-- Сборка 2: Mighty Knight -->
-            <div class="build-card">
-                <div class="image-gallery">
-                    <img class="gallery-img active" src=".\\Images\\MightyKnight1.jpg" alt="Сборка 2 вид 1">
-                    <img class="gallery-img" src=".\\Images\\MightyKnight2.jpg" alt="Сборка 2 вид 2">
-                    <img class="gallery-img" src=".\\Images\\MightyKnight3.jpg" alt="Сборка 2 вид 3">
-                    <div class="gallery-controls">
-                        <button class="gallery-btn prev" data-build="1">◀</button>
-                        <span class="img-counter">1/3</span>
-                        <button class="gallery-btn next" data-build="1">▶</button>
+                <!-- сборка 1 -->
+                <div class="build-card">
+                    <div class="image-gallery">
+                        <img id="img1" class="gallery-img active" src=".\\Images\\NotForStudy1.png" alt="Сборка 1 вид 1">
+                        <img id="img2" class="gallery-img" src=".\\Images\\NotForStudy2.png" alt="Сборка 1 вид 2">
+                        <img id="img3" class="gallery-img" src=".\\Images\\NotForStudy3.jpeg" alt="Сборка 1 вид 3">
+                        <div class="gallery-controls">
+                            <button class="gallery-btn prev" data-build="0">◀</button>
+                            <span class="img-counter">1/3</span>
+                            <button class="gallery-btn next" data-build="0">▶</button>
+                        </div>
+                    </div>
+                    <div class="build-info">
+                        <h3>Not-For-Study</h3>
+                        <p class="build-desc">Выходец из вершины бюджетного сегмента, тот самый случай, когда нужно сказать папе, что для учёбы и по цене видно.</p>
+                        <ul class="specs">
+                            <li><span>CPU:</span> Intel Core i3 14100F</li>
+                            <li><span>GPU:</span> RTX 4050 8GB</li>
+                            <li><span>RAM:</span> 16GB DDR4 3200MHz</li>
+                            <li><span>SSD:</span> 512GB NVMe M.2</li>
+                            <li><span>Материнская плата:</span> B760M</li>
+                            <li><span>Блок питания:</span> 550W 80+ Bronze</li>
+                            <li><span>Корпус:</span> DeepCool Matrexx 30</li>
+                        </ul>
+                        <div class="price">70 000 ₽</div>
                     </div>
                 </div>
-                <div class="build-info">
-                    <h3>Mighty Knight</h3>
-                    <p class="build-desc">Серьёзная сборка для серьёзных людей с заделом под апгрейд на платформе AM5.</p>
-                    <ul class="specs">
-                        <li><span>CPU:</span> AMD Ryzen 5 7500F</li>
-                        <li><span>GPU:</span> RTX 4070 12GB</li>
-                        <li><span>RAM:</span> 16GB DDR5 5600MHz</li>
-                        <li><span>SSD:</span> 1TB NVMe M.2 Gen4</li>
-                        <li><span>Материнская плата:</span> B650</li>
-                        <li><span>Блок питания:</span> 750W 80+ Gold</li>
-                        <li><span>Корпус:</span> Fractal Design Pop Air</li>
-                    </ul>
-                    <div class="price">105 000 ₽</div>
+
+                <!-- сборка 2 -->
+                <div class="build-card">
+                    <div class="image-gallery">
+                        <img class="gallery-img active" src=".\\Images\\MightyKnight1.jpg" alt="Сборка 2 вид 1">
+                        <img class="gallery-img" src=".\\Images\\MightyKnight2.jpg" alt="Сборка 2 вид 2">
+                        <img class="gallery-img" src=".\\Images\\MightyKnight3.jpg" alt="Сборка 2 вид 3">
+                        <div class="gallery-controls">
+                            <button class="gallery-btn prev" data-build="1">◀</button>
+                            <span class="img-counter">1/3</span>
+                            <button class="gallery-btn next" data-build="1">▶</button>
+                        </div>
+                    </div>
+                    <div class="build-info">
+                        <h3>Mighty Knight</h3>
+                        <p class="build-desc">Серьёзная сборка для серьёзных людей с заделом под апгрейд на платформе AM5.</p>
+                        <ul class="specs">
+                            <li><span>CPU:</span> AMD Ryzen 5 7500F</li>
+                            <li><span>GPU:</span> RTX 4070 12GB</li>
+                            <li><span>RAM:</span> 16GB DDR5 5600MHz</li>
+                            <li><span>SSD:</span> 1TB NVMe M.2 Gen4</li>
+                            <li><span>Материнская плата:</span> B650</li>
+                            <li><span>Блок питания:</span> 750W 80+ Gold</li>
+                            <li><span>Корпус:</span> Fractal Design Pop Air</li>
+                        </ul>
+                        <div class="price">105 000 ₽</div>
+                    </div>
                 </div>
+
             </div>
-    </div>
-</section>
-        <!-- раздел тестов -->
+        </section>
+
+        <!-- Вкладка 3. Тесты -->
         <section id="benchmarks" class="section">
             <h2 class="section-title">Тесты в играх и программах</h2>
             <div class="charts-grid">
@@ -126,7 +128,8 @@
             </div>
             <p class="chart-note">* Результаты могут незначительно отличаться в зависимости от версий драйверов и температуры компонентов.</p>
         </section>
-        <!-- раздел отзывов -->
+
+        <!-- Вкладка Отзывы -->
         <section id="reviews" class="section">
             <h2 class="section-title">Отзывы</h2>
             <div class="reviews-grid">

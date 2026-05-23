@@ -1,9 +1,20 @@
+// цвета под графики тестов
 const COLORS = {
   nfs: '#00d4aa',
   mk: '#7c5cfc',
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ЧАСЫ — обновление каждую секунду через setInterval
+  const clock = document.getElementById('clock');
+  function updateClock() {
+    const now = new Date();
+    clock.textContent = now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  }
+  updateClock();
+  setInterval(updateClock, 1000);  // setInterval: вызывает updateClock каждые 1000 мс
+
+  // подсветка активного раздела в NavBar
   const sections = document.querySelectorAll('.section');
   const navBtns = document.querySelectorAll('.nav-btn');
 
@@ -16,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { rootMargin: '-40% 0px -55% 0px' });
 
   sections.forEach(s => observer.observe(s));
+
+  // переключение изображений компов
   document.querySelectorAll('.image-gallery').forEach(gallery => {
     const images = gallery.querySelectorAll('.gallery-img');
     const counter = gallery.querySelector('.img-counter');
@@ -42,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // графики CHART.JS
   const isMobile = window.innerWidth < 768;
   const baseFontSize = isMobile ? 9 : 12;
   const legendFontSize = isMobile ? 8 : 11;
@@ -66,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
+  // График 1: Игры (FPS)
   new Chart(document.getElementById('gamesChart'), {
     type: 'bar',
     data: {
@@ -94,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
+  // График 2: Бенчмарки
   new Chart(document.getElementById('workChart'), {
     type: 'bar',
     data: {
